@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engineering Exploration Portfolio | Rishubh Mahto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-page: #fbfbfd;
+  --bg-surface: #ffffff;
+  --border-subtle: #e5e7eb;
+  --border-dark: #111827;
+  --text-main: #0a0a0a;
+  --text-muted: #52525b;
+  --accent-amber: #d97706;
+  --accent-amber-light: #fef3c7;
+  --accent-badge: #f59e0b;
+  --font-serif: 'Cinzel', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --shadow-subtle: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  --shadow-elevated: 0 10px 25px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.6;
+  font-size: 0.98rem;
+  background-image: radial-gradient(circle, #e5e7eb 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Header & Navigation */
+header {
+  background: var(--bg-surface);
+  border-bottom: 2px solid var(--border-dark);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+nav {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text-main);
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.brand-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--accent-amber);
+  display: inline-block;
+  border-radius: 50%;
+}
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+.nav-links a:hover {
+  color: var(--accent-amber);
+}
+
+/* Hero Section */
+.hero-wrapper {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 60px 24px;
+}
+.hero-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: var(--accent-amber-light);
+  color: #92400e;
+  font-weight: 600;
+  font-size: 0.78rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+  border: 1px solid #fde68a;
+}
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 16px 0;
+  color: var(--border-dark);
+}
+.hero p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 580px;
+  margin-bottom: 28px;
+}
+
+/* Profile Card */
+.profile-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-dark);
+  border-radius: 8px;
+  padding: 28px 24px;
+  box-shadow: 6px 6px 0 var(--border-dark);
+  position: relative;
+}
+.profile-card::before {
+  content: "STUDENT RECORD";
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  background: var(--accent-amber);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+.profile-card h3 {
+  margin: 0 0 16px;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 8px;
+}
+.profile-meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 16px;
+  font-size: 0.92rem;
+}
+.profile-meta .label {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.profile-meta .value {
+  color: var(--text-main);
+  font-weight: 500;
+}
+.skill-tags {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.skill-tag {
+  background: #f4f4f5;
+  color: #27272a;
+  border: 1px solid #e4e4e7;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Main Container */
+main {
+  max-width: 1180px;
+  margin: 40px auto 80px;
+  padding: 0 24px;
+}
+.section-title {
+  margin-bottom: 28px;
+}
+.section-title h2 {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  margin: 0 0 6px;
+  color: var(--border-dark);
+}
+.section-title p {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+/* Lab Cards Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+  gap: 28px;
+  margin-bottom: 60px;
+}
+@media (max-width: 600px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}
+
+.lab-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-dark);
+  border-radius: 8px;
+  box-shadow: 4px 4px 0 var(--border-dark);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.lab-card-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: #fafafb;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.lab-num {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--accent-amber);
+  background: var(--accent-amber-light);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #fde68a;
+}
+.lab-card-header h3 {
+  margin: 6px 0 0 0;
+  font-size: 1.25rem;
+  font-family: var(--font-serif);
+}
+.lab-category {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+.lab-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 16px;
+}
+.info-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.info-box {
+  background: #fafafa;
+  border-left: 3px solid var(--border-dark);
+  padding: 10px 12px;
+  font-size: 0.88rem;
+  border-radius: 0 4px 4px 0;
+}
+.info-box strong {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+pre {
+  background: #18181b;
+  color: #f4f4f5;
+  padding: 14px 16px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  overflow-x: auto;
+  margin: 0;
+  border-left: 3px solid var(--accent-amber);
+}
+
+/* Media Box */
+.media-container {
+  border: 1px dashed #cbd5e1;
+  border-radius: 6px;
+  padding: 14px;
+  background: #f8fafc;
+}
+.media-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.media-preview-area {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  overflow: hidden;
+  position: relative;
+}
+.media-preview-area img, .media-preview-area video {
+  max-width: 100%;
+  max-height: 240px;
+  object-fit: contain;
+}
+.media-input {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 0.8rem;
+}
+
+/* Embedded Anti-Copy PDF Document Viewer */
+.pdf-viewer-section {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-dark);
+  border-radius: 8px;
+  box-shadow: 6px 6px 0 var(--border-dark);
+  padding: 32px;
+  margin-bottom: 60px;
+}
+.pdf-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 24px;
+}
+.pdf-shield-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fee2e2;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 9999px;
+}
+
+/* Copy-Protected Container */
+.no-copy-container {
+  position: relative;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 6px;
+  background: #fdfdfd;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.no-copy-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: transparent;
+  pointer-events: auto;
+}
+.report-frame {
+  width: 100%;
+  min-height: 540px;
+  border: none;
+  pointer-events: none;
+  user-select: none;
+}
+.report-fallback-doc {
+  padding: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: var(--font-sans);
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+.report-fallback-doc h3 {
+  font-family: var(--font-serif);
+  border-bottom: 2px solid var(--border-dark);
+  padding-bottom: 12px;
+}
+
+/* Footer */
+footer {
+  background: var(--bg-surface);
+  border-top: 2px solid var(--border-dark);
+  padding: 36px 24px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+footer strong {
+  color: var(--text-main);
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand">
+      <span class="brand-dot"></span>
+      RISHUBH MAHTO
+    </div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#lab-work">Practicals</a>
+      <a href="#report-section">Protected Lab Record</a>
+    </div>
+  </nav>
+</header>
+
+<div class="hero-wrapper">
+  <div class="hero-container">
+    <div class="hero">
+      <div class="badge-pill">B.Tech Computer Science Engineering</div>
+      <h1>Engineering Exploration E-Portfolio</h1>
+      <p>A comprehensive academic showcase of lab experiments, circuit design, sensor telemetry, and embedded software fundamentals executed during the course.</p>
+    </div>
+
+    <div class="profile-card">
+      <h3>Student Profile</h3>
+      <div class="profile-meta">
+        <span class="label">Candidate:</span>
+        <span class="value">Rishubh Mahto</span>
+        <span class="label">Course:</span>
+        <span class="value">B.Tech CSE</span>
+        <span class="label">Roll No:</span>
+        <span class="value">2K26CSU01AN112</span>
+        <span class="label">Subject:</span>
+        <span class="value">Engineering Exploration</span>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag">Circuit Prototyping</span>
+        <span class="skill-tag">Arduino C++</span>
+        <span class="skill-tag">Sensor Interfacing</span>
+        <span class="skill-tag">MIT App Inventor</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <!-- Practical Activities Section -->
+  <section id="lab-work">
+    <div class="section-title">
+      <h2>Laboratory Activities & Practicals</h2>
+      <p>Hands-on hardware assembly, programming, and real-time execution records.</p>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Lab 1 -->
+      <article class="lab-card">
+        <div class="lab-card-header">
+          <div>
+            <span class="lab-category">Digital Output Logic</span>
+            <h3>Blinking of LED Using Arduino</h3>
+          </div>
+          <span class="lab-num">EXP 01</span>
+        </div>
+        <div class="lab-card-body">
+          <p><strong>Objective:</strong> Learn GPIO digital switching by regulating forward voltage across a diode using sequential programmatic state delays.</p>
+          <div class="info-row">
+            <div class="info-box">
+              <strong>Components</strong>
+              Arduino Uno, LED, 220Ω Resistor, Breadboard
+            </div>
+            <div class="info-box">
+              <strong>Key Principle</strong>
+              Active-high GPIO output mode with pulsed delay cycles
+            </div>
+          </div>
+          <pre>const int ledPin = 13;
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+void loop() {
+  digitalWrite(ledPin, HIGH);
+  delay(1000);
+  digitalWrite(ledPin, LOW);
+  delay(1000);
+}</pre>
+          <div class="media-container" data-upload-group>
+            <div class="media-header">
+              <span>Verified Media Evidence</span>
+              <span>JPG / PNG / MP4</span>
+            </div>
+            <div class="media-preview-area">No proof attached yet</div>
+            <input type="file" class="media-input" accept="image/*,video/*" />
+          </div>
+        </div>
+      </article>
+
+      <!-- Lab 2 -->
+      <article class="lab-card">
+        <div class="lab-card-header">
+          <div>
+            <span class="lab-category">Analog to Digital Conversion</span>
+            <h3>Potentiometer Sensor Calibration</h3>
+          </div>
+          <span class="lab-num">EXP 02</span>
+        </div>
+        <div class="lab-card-body">
+          <p><strong>Objective:</strong> Read continuous resistive voltage variations through the 10-bit analog conversion channels on the microcontroller.</p>
+          <div class="info-row">
+            <div class="info-box">
+              <strong>Components</strong>
+              Potentiometer (10kΩ), Breadboard, Jumper wires
+            </div>
+            <div class="info-box">
+              <strong>Key Principle</strong>
+              Voltage division mapped across 0 to 1023 integer bounds
+            </div>
+          </div>
+          <pre>int potPin = A0;
+void setup() {
+  Serial.begin(9600);
+}
+void loop() {
+  int sensorValue = analogRead(potPin);
+  Serial.println(sensorValue);
+  delay(100);
+}</pre>
+          <div class="media-container" data-upload-group>
+            <div class="media-header">
+              <span>Verified Media Evidence</span>
+              <span>JPG / PNG / MP4</span>
+            </div>
+            <div class="media-preview-area">No proof attached yet</div>
+            <input type="file" class="media-input" accept="image/*,video/*" />
+          </div>
+        </div>
+      </article>
+
+      <!-- Lab 3 -->
+      <article class="lab-card">
+        <div class="lab-card-header">
+          <div>
+            <span class="lab-category">Distance Telemetry</span>
+            <h3>HC-SR04 Ultrasonic Rangefinder</h3>
+          </div>
+          <span class="lab-num">EXP 03</span>
+        </div>
+        <div class="lab-card-body">
+          <p><strong>Objective:</strong> Estimate spatial distance by calculating high-frequency acoustic wave time-of-flight reflected from an object surface.</p>
+          <div class="info-row">
+            <div class="info-box">
+              <strong>Components</strong>
+              HC-SR04 Sensor, Piezo Buzzer / Indicator LED
+            </div>
+            <div class="info-box">
+              <strong>Key Principle</strong>
+              Time-of-flight conversion using speed of sound in air (343 m/s)
+            </div>
+          </div>
+          <pre>long duration; int distance;
+digitalWrite(trigPin, LOW); delayMicroseconds(2);
+digitalWrite(trigPin, HIGH); delayMicroseconds(10);
+digitalWrite(trigPin, LOW);
+duration = pulseIn(echoPin, HIGH);
+distance = duration * 0.0343 / 2;</pre>
+          <div class="media-container" data-upload-group>
+            <div class="media-header">
+              <span>Verified Media Evidence</span>
+              <span>JPG / PNG / MP4</span>
+            </div>
+            <div class="media-preview-area">No proof attached yet</div>
+            <input type="file" class="media-input" accept="image/*,video/*" />
+          </div>
+        </div>
+      </article>
+
+      <!-- Lab 4 -->
+      <article class="lab-card">
+        <div class="lab-card-header">
+          <div>
+            <span class="lab-category">Wireless Protocol</span>
+            <h3>Bluetooth Serial Communication</h3>
+          </div>
+          <span class="lab-num">EXP 04</span>
+        </div>
+        <div class="lab-card-body">
+          <p><strong>Objective:</strong> Establish a wireless serial bridge using UART transmission to actuate physical circuit loads directly from an external mobile application.</p>
+          <div class="info-row">
+            <div class="info-box">
+              <strong>Components</strong>
+              HC-05 / HC-06 Transceiver, Voltage Divider, Target Load
+            </div>
+            <div class="info-box">
+              <strong>Key Principle</strong>
+              Asynchronous serial RX/TX command stream processing
+            </div>
+          </div>
+          <pre>char receivedChar;
+if (Serial.available() > 0) {
+  receivedChar = Serial.read();
+  if (receivedChar == '1') digitalWrite(ledPin, HIGH);
+  if (receivedChar == '0') digitalWrite(ledPin, LOW);
+}</pre>
+          <div class="media-container" data-upload-group>
+            <div class="media-header">
+              <span>Verified Media Evidence</span>
+              <span>JPG / PNG / MP4</span>
+            </div>
+            <div class="media-preview-area">No proof attached yet</div>
+            <input type="file" class="media-input" accept="image/*,video/*" />
+          </div>
+        </div>
+      </article>
+
+      <!-- Lab 5 -->
+      <article class="lab-card">
+        <div class="lab-card-header">
+          <div>
+            <span class="lab-category">Application Engineering</span>
+            <h3>MIT App Inventor Arithmetic Calculator</h3>
+          </div>
+          <span class="lab-num">EXP 05</span>
+        </div>
+        <div class="lab-card-body">
+          <p><strong>Objective:</strong> Model, construct, and deploy a full-featured Android application for arithmetic logic using event-driven visual block compilation.</p>
+          <div class="info-row">
+            <div class="info-box">
+              <strong>Framework</strong>
+              MIT App Inventor 2 Visual Workspace
+            </div>
+            <div class="info-box">
+              <strong>Key Modules</strong>
+              TextBox Inputs, Operation Dispatchers, Result Labels
+            </div>
+          </div>
+          <pre>// Event Logic:
+when AddButton.Click do:
+  set ResultLabel.Text to (TextBox1.Text + TextBox2.Text)
+when DivideButton.Click do:
+  if TextBox2.Text != 0 then ResultLabel.Text to (TextBox1 / TextBox2)</pre>
+          <div class="media-container" data-upload-group>
+            <div class="media-header">
+              <span>Verified Media Evidence</span>
+              <span>JPG / PNG / MP4</span>
+            </div>
+            <div class="media-preview-area">No proof attached yet</div>
+            <input type="file" class="media-input" accept="image/*,video/*" />
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Attached Lab Activity Document / PDF Section with Copy Protection -->
+  <section id="report-section">
+    <div class="pdf-viewer-section">
+      <div class="pdf-banner">
+        <div>
+          <h2 style="font-family: var(--font-serif); margin: 0 0 4px 0;">Official Course Lab Dossier</h2>
+          <p style="margin: 0; color: var(--text-muted); font-size: 0.9rem;">Authenticated records & evaluations for Engineering Exploration</p>
+        </div>
+        <span class="pdf-shield-pill">Protected Document • Direct Copy Disabled</span>
+      </div>
+
+      <!-- Copy-Protected Document Box -->
+      <div class="no-copy-container" oncontextmenu="return false;">
+        <!-- Transparent intercept layer stopping drag-to-select and inspector targeting -->
+        <div class="no-copy-overlay"></div>
+
+        <!-- Embedded Viewer: Set your actual PDF file here (e.g. src="EE_Lab_Manual_Rishubh.pdf#toolbar=0") -->
+        <iframe 
+          class="report-frame" 
+          src="about:blank"
+          title="Lab Manual Report Document"
+          id="protectedPdfFrame">
+        </iframe>
+
+        <!-- Fallback visual display representing document pages -->
+        <div class="report-fallback-doc" id="fallbackDoc">
+          <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #111; padding-bottom:10px; margin-bottom: 20px;">
+            <div>
+              <span style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; color:var(--text-muted);">ACADEMIC EVALUATION DOSSIER</span>
+              <h3 style="margin:4px 0 0 0; font-size:1.3rem;">Engineering Exploration Practicals</h3>
+            </div>
+            <div style="text-align:right; font-size:0.85rem;">
+              <strong>Rishubh Mahto</strong><br>
+              <span style="color:var(--text-muted);">2K26CSU01AN112</span>
+            </div>
+          </div>
+          
+          <p><strong>Course Summary:</strong> Verification of electronic breadboarding, Arduino C++ firmware, hardware sensor loops, and wireless interaction modules executed across official lab sessions.</p>
+          
+          <table style="width:100%; border-collapse: collapse; margin-top: 16px; font-size: 0.88rem;">
+            <thead>
+              <tr style="border-bottom: 2px solid #000; text-align: left;">
+                <th style="padding: 8px;">Expt #</th>
+                <th style="padding: 8px;">Activity Description</th>
+                <th style="padding: 8px;">Status</th>
+                <th style="padding: 8px;">Assessment</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid #e5e7eb;">
+                <td style="padding: 8px;">01</td>
+                <td style="padding: 8px;">LED Digital Pulse Actuation</td>
+                <td style="padding: 8px; color: #16a34a; font-weight: 600;">Completed</td>
+                <td style="padding: 8px;">Verified</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e5e7eb;">
+                <td style="padding: 8px;">02</td>
+                <td style="padding: 8px;">Potentiometer Analog ADC Mapping</td>
+                <td style="padding: 8px; color: #16a34a; font-weight: 600;">Completed</td>
+                <td style="padding: 8px;">Verified</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e5e7eb;">
+                <td style="padding: 8px;">03</td>
+                <td style="padding: 8px;">HC-SR04 Ultrasonic Echo Timing</td>
+                <td style="padding: 8px; color: #16a34a; font-weight: 600;">Completed</td>
+                <td style="padding: 8px;">Verified</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e5e7eb;">
+                <td style="padding: 8px;">04</td>
+                <td style="padding: 8px;">Bluetooth UART Communication</td>
+                <td style="padding: 8px; color: #16a34a; font-weight: 600;">Completed</td>
+                <td style="padding: 8px;">Verified</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e5e7eb;">
+                <td style="padding: 8px;">05</td>
+                <td style="padding: 8px;">MIT App Inventor Visual Calculator</td>
+                <td style="padding: 8px; color: #16a34a; font-weight: 600;">Completed</td>
+                <td style="padding: 8px;">Verified</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div style="margin-top: 30px; padding: 12px; background: #fafafa; border: 1px solid #eaeaea; font-size: 0.8rem; color: #666;">
+            Notice: This document is protected against selection, copying, and unauthorised replication for internal university assessment compliance.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong>Rishubh Mahto</strong> • Roll No. 2K26CSU01AN112<br>
+  Engineering Exploration Lab Portfolio • Department of Computer Science & Engineering
+</footer>
+
+<script>
+// Disable keyboard shortcut combinations used for copying on protected elements
+document.addEventListener('keydown', function(e) {
+  if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'C' || e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S')) {
+    const active = document.activeElement;
+    if (active && active.closest('.no-copy-container')) {
+      e.preventDefault();
+      return false;
+    }
+  }
+});
+
+// Interactive dynamic media preview uploader for each experiment card
+document.querySelectorAll('[data-upload-group]').forEach(function(box) {
+  const input = box.querySelector('.media-input');
+  const preview = box.querySelector('.media-preview-area');
+
+  input.addEventListener('change', function() {
+    const file = this.files[0];
+    if (!file) return;
+
+    preview.innerHTML = '';
+    const fileURL = URL.createObjectURL(file);
+
+    if (file.type.startsWith('video/')) {
+      const vid = document.createElement('video');
+      vid.src = fileURL;
+      vid.controls = true;
+      preview.appendChild(vid);
+    } else if (file.type.startsWith('image/')) {
+      const img = document.createElement('img');
+      img.src = fileURL;
+      preview.appendChild(img);
+    }
+  });
+});
+</script>
+</body>
+</html>
